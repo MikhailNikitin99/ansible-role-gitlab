@@ -31,10 +31,9 @@
 
 - name: Install GitLab repository.
   shell: |
-    curl -Ss https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | os=ubuntu dist=noble bash
+    curl -Ss https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | os=ubuntu dist=jammy bash
   args:
     creates: /etc/apt/sources.list.d/gitlab_gitlab-ce.list
-  when: not gitlab_file.stat.exists
 
 - name: Define the Gitlab package name.
   set_fact:
